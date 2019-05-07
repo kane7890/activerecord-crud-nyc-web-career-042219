@@ -98,7 +98,7 @@ describe 'Movie' do
         expect(movie.title).to eq("Movie_0")
       end
 
-      it 'can get the last item in the databse' do
+      it 'can get the last item in the database' do
         movie = can_get_the_last_item_in_the_database
         expect(movie.title).to eq("Movie_4")
       end
@@ -127,7 +127,9 @@ describe 'Movie' do
         movie = Movie.create(title: "Awesome Flick")
         expect {
           can_be_found_updated_and_saved
+  #        binding.pry
           movie.reload
+          binding.pry
         }.to change{ movie.title }.from("Awesome Flick").to("Even Awesomer Flick")
       end
 
