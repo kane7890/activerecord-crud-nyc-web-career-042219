@@ -92,7 +92,7 @@ def can_be_found_updated_and_saved
   movie=Movie.find_by(title: "Awesome Flick")
   movid=movie.id
   Movie.update(movid, title: "Even Awesomer Flick")
-binding.pry
+#binding.pry
 
 end
 
@@ -108,18 +108,21 @@ def can_update_multiple_items_at_once
   5.times do |i|
     Movie.create(title: "Movie_#{i}", release_date: 2000+i)
   end
-  __
+  Movie.all.each do |movieval|
+    Movie.update(movieval.id, title: "A Movie")
+  end
 end
 
 def can_destroy_a_single_item
   Movie.create(title: "That One Where the Guy Kicks Another Guy Once")
-  __
-  __
+  Movie.destroy(1)
+  # __
 end
 
 def can_destroy_all_items_at_once
   10.times do |i|
     Movie.create(title: "Movie_#{i}")
   end
-  __
+
+  Movie.destroy_all
 end

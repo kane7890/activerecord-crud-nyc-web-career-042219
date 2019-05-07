@@ -129,7 +129,7 @@ describe 'Movie' do
           can_be_found_updated_and_saved
   #        binding.pry
           movie.reload
-          binding.pry
+  #        binding.pry
         }.to change{ movie.title }.from("Awesome Flick").to("Even Awesomer Flick")
       end
 
